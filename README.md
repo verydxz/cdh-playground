@@ -24,4 +24,4 @@
 
 * [CDH Installation Path A](docs/cdh-install-path-a.md)
 
-* [CDH Installation Path B]()
+* CDH Installation Path B
