@@ -7,7 +7,7 @@ _GROUP="ubuntu"
 # insert ssh keys
 # if this doesn't work, run the script in /vagrant/shared on each machine
 if [ -e /home/$_USER/.ssh/ ]; then
-  echo [provision] /home/$_USER/.ssh/ already exists."
+  echo "[provision] /home/$_USER/.ssh/ already exists."
 else
   sudo mkdir /home/$_USER/.ssh
   echo "[provision] /home/$_USER/.ssh/ created."
@@ -32,10 +32,10 @@ if [ -e /tmp/hosts_updated ]; then
   echo "[provision] hosts file already updated"
 else
   sudo sed -i '$a \
-192.168.100.100 master \
-192.168.100.101 data1 \
-192.168.100.102 data2 \
-192.168.100.103 data3' /etc/hosts
+192.168.99.100 cdh0 \
+192.168.99.101 cdh1 \
+192.168.99.102 cdh2 \
+192.168.99.103 cdh3' /etc/hosts
   echo "[provision] hosts file updated"
   sudo touch /tmp/hosts_updated
 fi

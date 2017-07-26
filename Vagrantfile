@@ -30,61 +30,61 @@ Vagrant.configure("2") do |config|
   # config.vm.box = "xenial"
   the_box = "xenial"
 
-  config.vm.define "master" do |machine|
+  config.vm.define "cdh0" do |machine|
     machine.vm.box = the_box
-    machine.vm.network "private_network", ip: "192.168.100.100"
-    machine.vm.provision "shell", inline: "sudo echo master > /etc/hostname"
-    machine.vm.provision "shell", inline: "sudo hostname master"
+    machine.vm.network "private_network", ip: "192.168.99.100"
+    machine.vm.provision "shell", inline: "sudo echo cdh0 > /etc/hostname"
+    machine.vm.provision "shell", inline: "sudo hostname cdh0"
     machine.vm.synced_folder ".", "/vagrant/", disabled: true
-    machine.vm.synced_folder "synced_folders/master/", "/vagrant/local/", create: true
+    machine.vm.synced_folder "synced_folders/cdh0/", "/vagrant/local/", create: true
     machine.vm.synced_folder "synced_folders/shared/", "/vagrant/shared/", create: true
     machine.vm.provider "virtualbox" do |v|
-      v.name = "master"
+      v.name = "cdh0"
       v.memory = 4096
       v.cpus = 2
     end
   end
 
-  config.vm.define "data1" do |machine|
+  config.vm.define "cdh1" do |machine|
     machine.vm.box = the_box
-    machine.vm.network "private_network", ip: "192.168.100.101"
-    machine.vm.provision "shell", inline: "sudo echo data1 > /etc/hostname"
-    machine.vm.provision "shell", inline: "sudo hostname data1"
+    machine.vm.network "private_network", ip: "192.168.99.101"
+    machine.vm.provision "shell", inline: "sudo echo cdh1 > /etc/hostname"
+    machine.vm.provision "shell", inline: "sudo hostname cdh1"
     machine.vm.synced_folder ".", "/vagrant/", disabled: true
-    machine.vm.synced_folder "synced_folders/data1/", "/vagrant/local/", create: true
+    machine.vm.synced_folder "synced_folders/cdh1/", "/vagrant/local/", create: true
     machine.vm.synced_folder "synced_folders/shared/", "/vagrant/shared/", create: true
     machine.vm.provider "virtualbox" do |v|
-      v.name = "data1"
+      v.name = "cdh1"
       v.memory = 2048
       v.cpus = 1
     end
   end
 
-  config.vm.define "data2" do |machine|
+  config.vm.define "cdh2" do |machine|
     machine.vm.box = the_box
-    machine.vm.network "private_network", ip: "192.168.100.102"
-    machine.vm.provision "shell", inline: "sudo echo data2 > /etc/hostname"
-    machine.vm.provision "shell", inline: "sudo hostname data2"
+    machine.vm.network "private_network", ip: "192.168.99.102"
+    machine.vm.provision "shell", inline: "sudo echo cdh2 > /etc/hostname"
+    machine.vm.provision "shell", inline: "sudo hostname cdh2"
     machine.vm.synced_folder ".", "/vagrant/", disabled: true
     machine.vm.synced_folder "synced_folders/data2/", "/vagrant/local/", create: true
     machine.vm.synced_folder "synced_folders/shared/", "/vagrant/shared/", create: true
     machine.vm.provider "virtualbox" do |v|
-      v.name = "data2"
+      v.name = "cdh2"
       v.memory = 2048
       v.cpus = 1
     end
   end
 
-    config.vm.define "data3" do |machine|
+    config.vm.define "cdh3" do |machine|
       machine.vm.box = the_box
-      machine.vm.network "private_network", ip: "192.168.100.103"
-      machine.vm.provision "shell", inline: "sudo echo data3 > /etc/hostname"
-      machine.vm.provision "shell", inline: "sudo hostname data3"
+      machine.vm.network "private_network", ip: "192.168.99.103"
+      machine.vm.provision "shell", inline: "sudo echo cdh3 > /etc/hostname"
+      machine.vm.provision "shell", inline: "sudo hostname cdh3"
       machine.vm.synced_folder ".", "/vagrant/", disabled: true
       machine.vm.synced_folder "synced_folders/data3/", "/vagrant/local/", create: true
       machine.vm.synced_folder "synced_folders/shared/", "/vagrant/shared/", create: true
       machine.vm.provider "virtualbox" do |v|
-        v.name = "data3"
+        v.name = "cdh3"
         v.memory = 2048
         v.cpus = 1
       end
