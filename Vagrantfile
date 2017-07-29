@@ -66,7 +66,7 @@ Vagrant.configure("2") do |config|
     machine.vm.provision "shell", inline: "sudo echo cdh2 > /etc/hostname"
     machine.vm.provision "shell", inline: "sudo hostname cdh2"
     machine.vm.synced_folder ".", "/vagrant/", disabled: true
-    machine.vm.synced_folder "synced_folders/data2/", "/vagrant/local/", create: true
+    machine.vm.synced_folder "synced_folders/cdh2/", "/vagrant/local/", create: true
     machine.vm.synced_folder "synced_folders/shared/", "/vagrant/shared/", create: true
     machine.vm.provider "virtualbox" do |v|
       v.name = "cdh2"
@@ -81,7 +81,7 @@ Vagrant.configure("2") do |config|
       machine.vm.provision "shell", inline: "sudo echo cdh3 > /etc/hostname"
       machine.vm.provision "shell", inline: "sudo hostname cdh3"
       machine.vm.synced_folder ".", "/vagrant/", disabled: true
-      machine.vm.synced_folder "synced_folders/data3/", "/vagrant/local/", create: true
+      machine.vm.synced_folder "synced_folders/cdh3/", "/vagrant/local/", create: true
       machine.vm.synced_folder "synced_folders/shared/", "/vagrant/shared/", create: true
       machine.vm.provider "virtualbox" do |v|
         v.name = "cdh3"
